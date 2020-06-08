@@ -23,36 +23,51 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', '_easy' ); ?></a>
+	
+	<div class="headertop container">
+		<div class="row">
+			<div class="col-md-4">
+				<h1>Logotype</h1>
+			</div>
+			<div class="col">
+				<?php wp_nav_menu( array(
+					'theme_location'  => 'navbar',
+					'menu'            => 'navbar',
+					'container'       => 'nav',
+					'container_class' => 'navbar',
+					'container_id'    => false,
+					'menu_class'      => 'navbar-nav nav',
+					'menu_id'         => '',
+					'echo'            => true,
+					'fallback_cb'     => 'wp_page_menu',
+					'before'          => '',
+					'after'           => '',
+					'link_before'     => '',
+					'link_after'      => '',
+					'items_wrap'      => '<ul id = "%1$s" class = "%2$s">%3$s</ul>',
+					'depth'           => 0,
+					'walker'          => '',
+				) ); ?>
+			</div>
+		</div>
+	</div>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$_easy_description = get_bloginfo( 'description', 'display' );
-			if ( $_easy_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $_easy_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', '_easy' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+	<header>
+	  <div class="container">
+	    <div class="row">
+	      <div class="col">
+	        <h1>Web Design and Develop</h1>
+	        <h2>Web Design and Develop</h2>
+	        <h3>Web Design and Develop</h3>
+	        <h4>Web Design and Develop</h4>
+	        <h5>Web Design and Develop</h5>
+	        <h6>Web Design and Develop</h6>
+	      </div>
+	      <div class="col-md-5 ml-auto">
+	        <h1>Web Design & Develop</h1>
+	        <p>We are a new design studio based in USA. We have over 20 years of combined experience, and know a thing or two about designing wesites an mobile apps.</p>
+	        <button>contact us</button>
+	      </div>
+	    </div>
+	  </div>
+	</header>

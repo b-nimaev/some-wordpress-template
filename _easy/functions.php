@@ -54,6 +54,11 @@ if ( ! function_exists( '_easy_setup' ) ) :
 			)
 		);
 
+		add_action( 'after_setup_theme', 'theme_register_nav_menu' );
+		function theme_register_nav_menu() {
+			register_nav_menu( 'navbar', 'header navbar' );
+		}
+
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
@@ -186,4 +191,22 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  */
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
+}
+
+function my_comment( $comment, $args, $depth ){
+ 
+	?><li <?php comment_class() ?> id="comment-<?php comment_ID() ?>">
+		<div class="comment-body">
+			<?php echo get_avatar( $comment, 70, '', '', array( 'class' => 'comment-avatar' ) ) ?>
+			<div class="comment-content">
+				<span class="comment-author"><?php comment_author() ?></span>
+				<span class="comment-date"><?php comment_date( 'j F Y в H:i' ) ?></span>
+				<?php comment_text() ?>
+			</div>
+		</div>
+		<?php // без закрывающего </li> (!)
+ 
+}
+function end_my_comment( $comment, $args, $depth ){	
+	echo '</li>';
 }

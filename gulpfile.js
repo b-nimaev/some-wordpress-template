@@ -9,11 +9,11 @@ const   gulp = require('gulp'),
 		reload = browserSync.reload();
 
 const   path = {
-			src: './_esay/',
-			css: './_esay/assets/css/',
-			js: './_esay/assets/js/',
-			img: './_esay/assets/img/',
-			scss: './_esay/scss/',
+			src: './_easy/',
+			css: './_easy/assets/css/',
+			js: './_easy/assets/js/',
+			img: './_easy/assets/img/',
+			scss: './_easy/scss/',
 		}
 
 const build = {
@@ -83,5 +83,5 @@ function about(projectName) {
 
 exports.default = serve;
 exports.image = imageMin;
-exports.sass = gulp.series(sassReload, minifyCss);
+exports.sass = gulp.series(sassReload);
 exports.build = gulp.series(minifyCss, concatjs, imageMin);
